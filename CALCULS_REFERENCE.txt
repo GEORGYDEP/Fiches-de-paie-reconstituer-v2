@@ -1,0 +1,174 @@
+# CALCULS DÉTAILLÉS DES FICHES DE PAIE
+# Document de référence pour le professeur
+
+## FICHE 1 - SOPHIE DUBOIS (EMPLOYÉE)
+**Salaire Brut : 3.000,00 €**
+
+### Calculs :
+1. **ONSS Patronale (25%)** : 3.000 × 0,25 = 750,00 €
+2. **Coût Salarial Total** : 3.000 + 750 = 3.750,00 €
+3. **ONSS Personnelle (13,07%)** : 3.000 × 0,1307 = 392,10 €
+4. **Salaire Imposable** : 3.000 - 392,10 = 2.607,90 €
+5. **Précompte Professionnel (30%)** : 2.607,90 × 0,30 = 782,37 €
+6. **Salaire Net** : 2.607,90 - 782,37 = 1.825,53 €
+
+### Montants à replacer :
+- ✅ Salaire Brut : 3.000,00 €
+- ✅ Salaire Net : 1.825,53 €
+
+---
+
+## FICHE 2 - MARC LEGRAND (OUVRIER)
+**Salaire Brut : 2.500,00 €**
+
+### Calculs :
+1. **ONSS Patronale (25%)** : 2.500 × 0,25 = 625,00 €
+2. **Coût Salarial Total** : 2.500 + 625 = 3.125,00 €
+3. **ONSS Personnelle (13,07% × 108%)** : 2.500 × 0,1307 × 1,08 = 353,89 €
+4. **Salaire Imposable** : 2.500 - 353,89 = 2.146,11 €
+5. **Précompte Professionnel (30%)** : 2.146,11 × 0,30 = 643,83 €
+6. **Salaire Net** : 2.146,11 - 643,83 = 1.502,28 €
+
+### Montants à replacer :
+- ✅ Coût Salarial Total : 3.125,00 €
+- ✅ ONSS Patronale : 625,00 €
+
+---
+
+## FICHE 3 - JULIE MARTIN (EMPLOYÉE)
+**Salaire Brut : 3.500,00 €**
+
+### Calculs :
+1. **ONSS Patronale (25%)** : 3.500 × 0,25 = 875,00 €
+2. **Coût Salarial Total** : 3.500 + 875 = 4.375,00 €
+3. **ONSS Personnelle (13,07%)** : 3.500 × 0,1307 = 457,45 €
+4. **Salaire Imposable** : 3.500 - 457,45 = 3.042,55 €
+5. **Précompte Professionnel (30%)** : 3.042,55 × 0,30 = 912,77 €
+6. **Salaire Net** : 3.042,55 - 912,77 = 2.129,78 €
+
+### Montants à replacer :
+- ✅ ONSS Personnelle : 457,45 €
+- ✅ Précompte Professionnel : 912,77 €
+
+---
+
+## FICHE 4 - PIERRE DUMONT (OUVRIER)
+**Salaire Brut : 4.000,00 €**
+
+### Calculs :
+1. **ONSS Patronale (25%)** : 4.000 × 0,25 = 1.000,00 €
+2. **Coût Salarial Total** : 4.000 + 1.000 = 5.000,00 €
+3. **ONSS Personnelle (13,07% × 108%)** : 4.000 × 0,1307 × 1,08 = 565,42 €
+4. **Salaire Imposable** : 4.000 - 565,42 = 3.434,58 €
+5. **Précompte Professionnel (30%)** : 3.434,58 × 0,30 = 1.030,37 €
+6. **Salaire Net** : 3.434,58 - 1.030,37 = 2.404,21 €
+
+### Montants à replacer :
+- ✅ Salaire Imposable : 3.434,58 €
+- ✅ Précompte Professionnel : 1.030,37 €
+- ✅ Salaire Net : 2.404,21 €
+
+---
+
+## FICHE 5 - ISABELLE LEROY (EMPLOYÉE)
+**Salaire Brut : 4.500,00 €**
+
+### Calculs :
+1. **ONSS Patronale (25%)** : 4.500 × 0,25 = 1.125,00 €
+2. **Coût Salarial Total** : 4.500 + 1.125 = 5.625,00 €
+3. **ONSS Personnelle (13,07%)** : 4.500 × 0,1307 = 588,15 €
+4. **Salaire Imposable** : 4.500 - 588,15 = 3.911,85 €
+5. **Précompte Professionnel (30%)** : 3.911,85 × 0,30 = 1.173,56 €
+6. **Salaire Net** : 3.911,85 - 1.173,56 = 2.738,29 €
+
+### Montants à replacer (TOUS) :
+- ✅ Coût Salarial Total : 5.625,00 €
+- ✅ ONSS Patronale : 1.125,00 €
+- ✅ Salaire Brut : 4.500,00 €
+- ✅ ONSS Personnelle : 588,15 €
+- ✅ Salaire Imposable : 3.911,85 €
+- ✅ Précompte Professionnel : 1.173,56 €
+- ✅ Salaire Net : 2.738,29 €
+
+---
+
+## QUIZ - RÉPONSES CORRECTES
+
+### Question 1 : Qu'est-ce que le salaire brut ?
+**Réponse : B** - Le montant avant toute déduction des cotisations sociales et impôts
+
+### Question 2 : Qu'est-ce que le coût salarial ?
+**Réponse : B** - Le salaire brut plus les cotisations patronales
+
+### Question 3 : Que représente le précompte professionnel ?
+**Réponse : B** - Un impôt prélevé directement sur le salaire pour l'État
+
+### Question 4 : Qu'est-ce que le salaire net ?
+**Réponse : C** - Le montant effectivement versé au travailleur après toutes les déductions
+
+### Question 5 : Quelle est la différence principale entre un employé et un ouvrier concernant l'ONSS ?
+**Réponse : B** - L'ONSS de l'ouvrier est calculée avec un coefficient de 108%
+
+---
+
+## BARÈME DE NOTATION
+
+### Total : 30 points
+- **Fiches de paie** : 25 points (5 × 5 points)
+- **Quiz théorique** : 5 points (5 × 1 point)
+
+### Échelle d'appréciation :
+| Score    | Pourcentage | Appréciation                                        |
+|----------|-------------|-----------------------------------------------------|
+| 27-30    | 90-100%     | 🏆 Excellent ! Maîtrise parfaite de la matière     |
+| 23-26    | 75-89%      | 👏 Très bien ! Bonne compréhension                 |
+| 18-22    | 60-74%      | 👍 Bien ! Continuez à vous exercer                 |
+| 15-17    | 50-59%      | 📚 Passable - Revoyez les concepts                 |
+| 0-14     | 0-49%       | 📖 Insuffisant - Revoir la matière en détail       |
+
+---
+
+## FORMULES UTILISÉES
+
+### Pour EMPLOYÉS :
+```
+ONSS Patronale = Salaire Brut × 25%
+Coût Salarial = Salaire Brut + ONSS Patronale
+ONSS Personnelle = Salaire Brut × 13,07%
+Salaire Imposable = Salaire Brut - ONSS Personnelle
+Précompte Professionnel = Salaire Imposable × 30%
+Salaire Net = Salaire Imposable - Précompte Professionnel
+```
+
+### Pour OUVRIERS :
+```
+ONSS Patronale = Salaire Brut × 25%
+Coût Salarial = Salaire Brut + ONSS Patronale
+ONSS Personnelle = Salaire Brut × 13,07% × 108%
+Salaire Imposable = Salaire Brut - ONSS Personnelle
+Précompte Professionnel = Salaire Imposable × 30%
+Salaire Net = Salaire Imposable - Précompte Professionnel
+```
+
+---
+
+## NOTES PÉDAGOGIQUES
+
+### Points importants à souligner :
+1. La différence entre statut employé et ouvrier (coefficient 108% pour l'ONSS ouvrier)
+2. Le coût réel d'un employé pour l'entreprise (coût salarial)
+3. La différence entre salaire brut et salaire net
+4. Le rôle du précompte professionnel (impôt à la source)
+5. L'importance de l'ONSS pour la sécurité sociale
+
+### Exercice progressif :
+- Fiche 1 : Concepts de base (brut/net)
+- Fiche 2 : Vision employeur (coût salarial)
+- Fiche 3 : Déductions (ONSS et précompte)
+- Fiche 4 : Ouvrier avec calcul complet
+- Fiche 5 : Synthèse complète (employée)
+
+---
+
+**Date de création : Octobre 2025**
+**Usage : ISTLM - Cours d'économie**

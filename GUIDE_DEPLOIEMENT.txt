@@ -1,0 +1,244 @@
+# 🚀 GUIDE RAPIDE DE DÉPLOIEMENT - GitHub Pages
+
+## Étapes pour mettre l'application en ligne (5 minutes)
+
+### 📋 PRÉPARATION
+Vous avez besoin de :
+- Un compte GitHub (gratuit) : https://github.com/join
+- Les 4 fichiers de l'application :
+  ✓ index.html
+  ✓ styles.css
+  ✓ script.js
+  ✓ README.md
+
+---
+
+## 🌐 MÉTHODE 1 : Via l'interface GitHub (La plus simple)
+
+### Étape 1 : Créer le repository
+1. Connectez-vous sur https://github.com
+2. Cliquez sur le bouton vert **"New"** (ou le "+" en haut à droite > "New repository")
+3. Remplissez :
+   - **Repository name** : `fiches-paie-istlm` (ou un autre nom)
+   - **Description** : "Exercice interactif sur les fiches de paie belges"
+   - Cochez **"Public"**
+   - Cochez **"Add a README file"** (optionnel)
+4. Cliquez sur **"Create repository"**
+
+### Étape 2 : Uploader les fichiers
+1. Dans votre nouveau repository, cliquez sur **"Add file"** > **"Upload files"**
+2. Glissez-déposez les 4 fichiers (index.html, styles.css, script.js, README.md)
+3. Ajoutez un message de commit : "Ajout de l'application fiches de paie"
+4. Cliquez sur **"Commit changes"**
+
+### Étape 3 : Activer GitHub Pages
+1. Cliquez sur l'onglet **"Settings"** (en haut)
+2. Dans le menu de gauche, cliquez sur **"Pages"**
+3. Sous "Source" :
+   - Branch : sélectionnez **"main"**
+   - Folder : laissez **"/ (root)"**
+4. Cliquez sur **"Save"**
+5. ⏰ Attendez 2-3 minutes
+
+### Étape 4 : Accéder à votre application
+Votre site sera disponible à l'adresse :
+```
+https://VOTRE_NOM_UTILISATEUR.github.io/fiches-paie-istlm/
+```
+
+Exemple : Si votre nom d'utilisateur est "prof_dupont" et votre repo "fiches-paie-istlm" :
+```
+https://prof_dupont.github.io/fiches-paie-istlm/
+```
+
+---
+
+## 💻 MÉTHODE 2 : Via Git en ligne de commande (Pour utilisateurs avancés)
+
+### Prérequis
+- Git installé sur votre ordinateur
+- Terminal/Invite de commandes
+
+### Commandes à exécuter
+
+```bash
+# 1. Naviguez vers le dossier contenant vos fichiers
+cd chemin/vers/vos/fichiers
+
+# 2. Initialisez Git
+git init
+
+# 3. Ajoutez tous les fichiers
+git add .
+
+# 4. Créez votre premier commit
+git commit -m "Premier commit - Application fiches de paie"
+
+# 5. Créez la branche main
+git branch -M main
+
+# 6. Liez votre dossier local au repository GitHub
+# (Remplacez VOTRE_USERNAME et VOTRE_REPO par vos valeurs)
+git remote add origin https://github.com/VOTRE_USERNAME/VOTRE_REPO.git
+
+# 7. Envoyez vos fichiers sur GitHub
+git push -u origin main
+```
+
+### Puis activez GitHub Pages
+Suivez l'Étape 3 de la Méthode 1 ci-dessus.
+
+---
+
+## ✅ VÉRIFICATION
+
+### Comment savoir si ça fonctionne ?
+
+1. **Dans GitHub** :
+   - Allez dans Settings > Pages
+   - Vous devriez voir un message vert : "Your site is published at https://..."
+
+2. **Cliquez sur le lien** ou copiez-collez l'URL dans votre navigateur
+
+3. **Vous devriez voir** :
+   - La page de connexion avec le formulaire email
+   - Le design violet/gradient
+   - Pas d'erreurs dans la console du navigateur (F12)
+
+---
+
+## 🔧 RÉSOLUTION DE PROBLÈMES
+
+### ❌ Le site ne s'affiche pas
+- **Attendez** : GitHub Pages peut prendre jusqu'à 10 minutes
+- **Vérifiez** que GitHub Pages est activé dans Settings > Pages
+- **Videz le cache** : Ctrl + F5 (Windows) ou Cmd + Shift + R (Mac)
+
+### ❌ Le CSS ne s'applique pas
+- Vérifiez que les 3 fichiers sont bien dans le même dossier
+- Vérifiez les noms de fichiers (sensible à la casse)
+- Ouvrez la console navigateur (F12) pour voir les erreurs
+
+### ❌ Le drag & drop ne fonctionne pas
+- Testez sur un navigateur moderne (Chrome, Firefox, Edge)
+- Vérifiez que JavaScript est activé
+
+### ❌ Erreur 404
+- Vérifiez l'URL : elle doit être https://username.github.io/repo-name/
+- Vérifiez que index.html est bien à la racine du repository
+
+---
+
+## 📱 PARTAGER AVEC LES ÉLÈVES
+
+Une fois en ligne, partagez simplement l'URL :
+
+**Option 1 : Lien direct**
+```
+https://VOTRE_USERNAME.github.io/fiches-paie-istlm/
+```
+
+**Option 2 : QR Code**
+- Allez sur https://www.qr-code-generator.com/
+- Collez votre URL
+- Téléchargez le QR code
+- Imprimez-le ou projetez-le
+
+**Option 3 : Raccourcir l'URL**
+- Allez sur https://bit.ly
+- Créez un lien court facile à retenir
+- Exemple : bit.ly/istlm-paie
+
+---
+
+## 🔄 METTRE À JOUR L'APPLICATION
+
+### Via GitHub web
+1. Allez dans votre repository
+2. Cliquez sur le fichier à modifier
+3. Cliquez sur l'icône crayon (Edit)
+4. Faites vos modifications
+5. Cliquez sur "Commit changes"
+6. Le site se mettra à jour automatiquement en 1-2 minutes
+
+### Via Git
+```bash
+# 1. Modifiez vos fichiers localement
+# 2. Committez les changements
+git add .
+git commit -m "Description de vos modifications"
+git push
+```
+
+---
+
+## 📊 STATISTIQUES D'UTILISATION (Optionnel)
+
+Pour voir combien d'élèves utilisent l'application :
+
+1. Allez dans votre repository GitHub
+2. Cliquez sur "Insights" > "Traffic"
+3. Vous verrez le nombre de visiteurs
+
+---
+
+## 🎯 CHECKLIST FINALE
+
+Avant de partager avec les élèves, vérifiez :
+
+- [ ] Le site est accessible en ligne
+- [ ] La connexion email fonctionne (testez avec un email valide)
+- [ ] Les 5 fiches de paie s'affichent correctement
+- [ ] Le drag & drop fonctionne
+- [ ] La validation des réponses fonctionne
+- [ ] Le quiz s'affiche après les fiches
+- [ ] Les résultats finaux s'affichent correctement
+- [ ] Le design est responsive (testez sur mobile)
+- [ ] L'impression des résultats fonctionne
+
+---
+
+## 💡 CONSEILS POUR LES ÉLÈVES
+
+Créez une petite fiche d'instructions pour vos élèves :
+
+```
+📋 EXERCICE FICHES DE PAIE
+
+1. Allez sur : [VOTRE_URL_ICI]
+2. Connectez-vous avec votre email ISTLM : prenom.nom@istlm.org
+3. Complétez les 5 fiches de paie en glissant les montants
+4. Répondez au quiz de 5 questions
+5. Notez votre score sur 30 points
+6. Imprimez vos résultats si demandé
+
+💡 Astuce : Vous pouvez cliquer sur un montant placé pour le retirer
+⏰ Temps estimé : 30-45 minutes
+📱 Fonctionne sur ordinateur, tablette et smartphone
+```
+
+---
+
+## 📞 SUPPORT
+
+En cas de problème :
+
+1. **Documentation GitHub Pages** : https://docs.github.com/pages
+2. **Forum GitHub Community** : https://github.community
+3. **Stack Overflow** : Recherchez "GitHub Pages" + votre problème
+
+---
+
+## ✨ FÉLICITATIONS !
+
+Votre application est maintenant en ligne et accessible à vos élèves !
+
+**URL finale à partager** :
+```
+https://VOTRE_USERNAME.github.io/fiches-paie-istlm/
+```
+
+---
+
+**Document créé : Octobre 2025**
+**Pour : ISTLM - Cours d'économie**
