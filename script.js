@@ -21,7 +21,7 @@ let exerciseResults = {
 const quizAnswers = {
     q1: 'b',  // Le montant avant toute déduction
     q2: 'b',  // Le salaire brut plus les cotisations patronales
-    q3: 'b',  // Un impôt prélevé directement sur le salaire
+    q3: 'b',  // Une avance sur l'impôt qui sera versée à l'État
     q4: 'c',  // Le montant effectivement versé après toutes les déductions
     q5: 'b'   // L'ONSS de l'ouvrier est calculée avec un coefficient de 108%
 };
