@@ -9,7 +9,12 @@ let exerciseResults = {
     2: false,
     3: false,
     4: false,
-    5: false
+    5: false,
+    6: false,
+    7: false,
+    8: false,
+    9: false,
+    10: false
 };
 
 // Réponses correctes du quiz
@@ -55,12 +60,18 @@ function initializeLoginForm() {
 function initializeDragAndDrop() {
     const draggableItems = document.querySelectorAll('.draggable-item');
     const dropZones = document.querySelectorAll('.drop-zone');
-    
+
     draggableItems.forEach(item => {
+        // Support pour souris
         item.addEventListener('dragstart', handleDragStart);
         item.addEventListener('dragend', handleDragEnd);
+
+        // Support tactile
+        item.addEventListener('touchstart', handleTouchStart, { passive: false });
+        item.addEventListener('touchmove', handleTouchMove, { passive: false });
+        item.addEventListener('touchend', handleTouchEnd, { passive: false });
     });
-    
+
     dropZones.forEach(zone => {
         zone.addEventListener('dragover', handleDragOver);
         zone.addEventListener('drop', handleDrop);
@@ -144,22 +155,32 @@ function handleZoneClick(e) {
 function validateExercise(exerciseNumber) {
     const exercise = document.getElementById(`exercise-${exerciseNumber}`);
     const dropZones = exercise.querySelectorAll('.drop-zone');
+    const exerciseType = exercise.getAttribute('data-type'); // 'amounts' ou 'labels'
     let allCorrect = true;
     let allFilled = true;
-    
+
     dropZones.forEach(zone => {
         const filledValue = zone.getAttribute('data-filled-value');
         const correctAnswer = zone.getAttribute('data-answer');
-        
+
         if (!filledValue) {
             allFilled = false;
             return;
         }
-        
-        const filled = parseFloat(filledValue);
-        const correct = parseFloat(correctAnswer);
-        
-        if (Math.abs(filled - correct) < 0.01) {
+
+        // Pour les exercices de type "amounts", on compare des nombres
+        // Pour les exercices de type "labels", on compare des chaînes
+        let isCorrect = false;
+        if (exerciseType === 'amounts') {
+            const filled = parseFloat(filledValue);
+            const correct = parseFloat(correctAnswer);
+            isCorrect = Math.abs(filled - correct) < 0.01;
+        } else {
+            // Pour les labels, comparaison exacte (insensible à la casse et aux espaces)
+            isCorrect = filledValue.trim().toLowerCase() === correctAnswer.trim().toLowerCase();
+        }
+
+        if (isCorrect) {
             zone.classList.add('correct');
             zone.classList.remove('incorrect');
         } else {
@@ -168,12 +189,12 @@ function validateExercise(exerciseNumber) {
             allCorrect = false;
         }
     });
-    
+
     if (!allFilled) {
         showMessage('Veuillez remplir toutes les cases avant de valider !', 'error');
         return;
     }
-    
+
     if (allCorrect) {
         if (!exerciseResults[exerciseNumber]) {
             exerciseResults[exerciseNumber] = true;
@@ -181,11 +202,11 @@ function validateExercise(exerciseNumber) {
             totalScore += 5;
             updateScore();
         }
-        
+
         showMessage('✅ Excellent ! Toutes vos réponses sont correctes ! (+5 points)', 'success');
-        
+
         setTimeout(() => {
-            if (exerciseNumber < 5) {
+            if (exerciseNumber < 10) {
                 showExercise(exerciseNumber + 1);
             } else {
                 showQuiz();
@@ -199,27 +220,27 @@ function validateExercise(exerciseNumber) {
 // Affichage des exercices
 function showExercise(exerciseNumber) {
     // Cacher tous les exercices
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 10; i++) {
         const ex = document.getElementById(`exercise-${i}`);
         if (ex) ex.classList.add('hidden');
     }
-    
+
     // Afficher l'exercice demandé
     const exercise = document.getElementById(`exercise-${exerciseNumber}`);
     if (exercise) {
         exercise.classList.remove('hidden');
         currentExercise = exerciseNumber;
         updateProgress();
-        
+
         // Réinitialiser le drag and drop pour ce nouvel exercice
         const draggableItems = exercise.querySelectorAll('.draggable-item');
         const dropZones = exercise.querySelectorAll('.drop-zone');
-        
+
         draggableItems.forEach(item => {
             item.classList.remove('used');
             item.draggable = true;
         });
-        
+
         dropZones.forEach(zone => {
             zone.textContent = '';
             zone.removeAttribute('data-filled-value');
@@ -301,7 +322,7 @@ function updateScore() {
 
 // Mise à jour de la barre de progression
 function updateProgress() {
-    const progress = (currentExercise / 5) * 100;
+    const progress = (currentExercise / 10) * 100;
     document.getElementById('progress-fill').style.width = progress + '%';
 }
 
@@ -309,10 +330,10 @@ function updateProgress() {
 function showResults() {
     document.getElementById('quiz-section').classList.add('hidden');
     document.getElementById('results-section').classList.remove('hidden');
-    
-    const percentage = Math.round((totalScore / 30) * 100);
+
+    const percentage = Math.round((totalScore / 55) * 100);
     let appreciation = '';
-    
+
     if (percentage >= 90) {
         appreciation = '🏆 Excellent ! Vous maîtrisez parfaitement la matière !';
     } else if (percentage >= 75) {
@@ -324,14 +345,14 @@ function showResults() {
     } else {
         appreciation = '📖 Il est recommandé de revoir la matière en détail.';
     }
-    
+
     document.getElementById('final-score').textContent = totalScore;
     document.getElementById('percentage').textContent = `Pourcentage : ${percentage}%`;
     document.getElementById('appreciation').textContent = appreciation;
     document.getElementById('payslip-score').textContent = payslipScore;
     document.getElementById('quiz-score').textContent = quizScore;
     document.getElementById('student-email').textContent = studentEmail;
-    
+
     const now = new Date();
     const dateString = now.toLocaleDateString('fr-BE', {
         weekday: 'long',
@@ -342,7 +363,7 @@ function showResults() {
         minute: '2-digit'
     });
     document.getElementById('completion-date').textContent = dateString;
-    
+
     window.scrollTo(0, 0);
 }
 
@@ -368,6 +389,80 @@ function showMessage(message, type) {
             messageDiv.remove();
         }, 5000);
     }
+}
+
+// Support tactile (touch events)
+let touchedElement = null;
+let touchClone = null;
+
+function handleTouchStart(e) {
+    if (this.classList.contains('used')) {
+        e.preventDefault();
+        return;
+    }
+
+    touchedElement = this;
+    this.classList.add('dragging');
+
+    // Créer un clone visuel pour le drag
+    touchClone = this.cloneNode(true);
+    touchClone.style.position = 'fixed';
+    touchClone.style.zIndex = '10000';
+    touchClone.style.opacity = '0.8';
+    touchClone.style.pointerEvents = 'none';
+    touchClone.style.width = this.offsetWidth + 'px';
+    document.body.appendChild(touchClone);
+
+    const touch = e.touches[0];
+    touchClone.style.left = (touch.clientX - this.offsetWidth / 2) + 'px';
+    touchClone.style.top = (touch.clientY - 25) + 'px';
+
+    e.preventDefault();
+}
+
+function handleTouchMove(e) {
+    if (!touchedElement || !touchClone) return;
+
+    const touch = e.touches[0];
+    touchClone.style.left = (touch.clientX - touchedElement.offsetWidth / 2) + 'px';
+    touchClone.style.top = (touch.clientY - 25) + 'px';
+
+    e.preventDefault();
+}
+
+function handleTouchEnd(e) {
+    if (!touchedElement) return;
+
+    const touch = e.changedTouches[0];
+    const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+
+    // Trouver la drop zone la plus proche
+    let dropZone = dropTarget;
+    while (dropZone && !dropZone.classList.contains('drop-zone')) {
+        dropZone = dropZone.parentElement;
+    }
+
+    if (dropZone && dropZone.classList.contains('drop-zone') && !dropZone.classList.contains('filled')) {
+        const value = touchedElement.getAttribute('data-value');
+        const displayText = touchedElement.textContent;
+
+        dropZone.textContent = displayText;
+        dropZone.setAttribute('data-filled-value', value);
+        dropZone.classList.add('filled');
+
+        touchedElement.classList.add('used');
+        touchedElement.draggable = false;
+    }
+
+    touchedElement.classList.remove('dragging');
+
+    if (touchClone) {
+        touchClone.remove();
+        touchClone = null;
+    }
+
+    touchedElement = null;
+    e.preventDefault();
 }
 
 // Empêcher le comportement par défaut du drag sur le document

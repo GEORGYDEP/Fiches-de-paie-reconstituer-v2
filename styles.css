@@ -206,6 +206,10 @@ header h1 {
     background: #fff;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     margin-bottom: 20px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .payslip-header {
@@ -301,6 +305,18 @@ header h1 {
     font-weight: 700;
     font-family: 'Courier New', monospace;
     position: relative;
+}
+
+/* Drop zone pour les intitulés (alignement à gauche) */
+[data-type="labels"] .drop-zone {
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Drop zone indentée pour les exercices labels */
+.drop-zone.indent-drop {
+    padding-left: 35px;
+    font-style: italic;
 }
 
 .drop-zone.drag-over {

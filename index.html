@@ -41,12 +41,12 @@
                 <div class="progress-fill" id="progress-fill"></div>
             </div>
             <div class="score-display">
-                <span>Score actuel : <strong id="current-score">0</strong> / 30 points</span>
+                <span>Score actuel : <strong id="current-score">0</strong> / 55 points</span>
             </div>
 
-            <!-- Fiche 1 -->
-            <div class="payslip-exercise" id="exercise-1">
-                <h2>Fiche de Paie #1 - Sophie Dubois (Employée)</h2>
+            <!-- Fiche 1 - Montants -->
+            <div class="payslip-exercise" id="exercise-1" data-type="amounts">
+                <h2>Fiche de Paie #1 - Sophie Dubois (Employée) - Montants</h2>
                 <div class="instructions">
                     <p><strong>Instructions :</strong> Glissez les montants corrects pour le <strong>Salaire Brut</strong> et le <strong>Salaire Net</strong>.</p>
                     <p class="points">⭐ 5 points pour cette fiche</p>
@@ -114,9 +114,79 @@
                 <button class="btn btn-validate" onclick="validateExercise(1)">Valider cette fiche</button>
             </div>
 
-            <!-- Fiche 2 -->
-            <div class="payslip-exercise hidden" id="exercise-2">
-                <h2>Fiche de Paie #2 - Marc Legrand (Ouvrier)</h2>
+            <!-- Fiche 1 bis - Intitulés -->
+            <div class="payslip-exercise hidden" id="exercise-2" data-type="labels">
+                <h2>Fiche de Paie #1 bis - Sophie Dubois (Employée) - Intitulés</h2>
+                <div class="instructions">
+                    <p><strong>Instructions :</strong> Glissez les intitulés corrects pour chaque ligne du tableau.</p>
+                    <p class="points">⭐ 5 points pour cette fiche</p>
+                </div>
+
+                <div class="payslip">
+                    <div class="payslip-header">
+                        <div class="company-info">
+                            <h3>TechBrux Solutions S.A.</h3>
+                            <p>Avenue Louise 123<br>1050 Bruxelles<br>BCE: 0123.456.789</p>
+                        </div>
+                        <div class="employee-info">
+                            <h3>Sophie DUBOIS</h3>
+                            <p>Rue de la Loi 45<br>1040 Bruxelles<br>Matricule: EMP-2024-001</p>
+                        </div>
+                    </div>
+
+                    <div class="payslip-details">
+                        <h4>BULLETIN DE PAIE - Octobre 2025</h4>
+                        <p><strong>Statut :</strong> Employée | <strong>Fonction :</strong> Développeuse Web</p>
+
+                        <table class="payslip-table">
+                            <tr>
+                                <td class="label-cell">Coût Salarial Total (Employeur)</td>
+                                <td class="amount-cell">3.750,00 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell indent">ONSS Patronale (25%)</td>
+                                <td class="amount-cell">- 750,00 €</td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone" data-answer="SALAIRE BRUT" data-exercise="2" data-field="brut-label"></td>
+                                <td class="amount-cell"><strong>3.000,00 €</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell indent">ONSS Personnelle (13,07%)</td>
+                                <td class="amount-cell">- 392,10 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell">Salaire Imposable</td>
+                                <td class="amount-cell">2.607,90 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell indent">Précompte Professionnel (30%)</td>
+                                <td class="amount-cell">- 782,37 €</td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone" data-answer="SALAIRE NET À PAYER" data-exercise="2" data-field="net-label"></td>
+                                <td class="amount-cell"><strong>1.825,53 €</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="draggable-items">
+                    <h4>Intitulés disponibles :</h4>
+                    <div class="items-container">
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT">SALAIRE BRUT</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE NET À PAYER">SALAIRE NET À PAYER</div>
+                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable">Salaire Imposable</div>
+                        <div class="draggable-item" draggable="true" data-value="Coût Salarial Total">Coût Salarial Total</div>
+                    </div>
+                </div>
+
+                <button class="btn btn-validate" onclick="validateExercise(2)">Valider cette fiche</button>
+            </div>
+
+            <!-- Fiche 2 - Montants -->
+            <div class="payslip-exercise hidden" id="exercise-3" data-type="amounts">
+                <h2>Fiche de Paie #2 - Marc Legrand (Ouvrier) - Montants</h2>
                 <div class="instructions">
                     <p><strong>Instructions :</strong> Glissez les montants corrects pour le <strong>Coût Salarial Total</strong> et l'<strong>ONSS Patronale</strong>.</p>
                     <p class="points">⭐ 5 points pour cette fiche</p>
@@ -181,12 +251,82 @@
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(2)">Valider cette fiche</button>
+                <button class="btn btn-validate" onclick="validateExercise(3)">Valider cette fiche</button>
             </div>
 
-            <!-- Fiche 3 -->
-            <div class="payslip-exercise hidden" id="exercise-3">
-                <h2>Fiche de Paie #3 - Julie Martin (Employée)</h2>
+            <!-- Fiche 2 bis - Intitulés -->
+            <div class="payslip-exercise hidden" id="exercise-4" data-type="labels">
+                <h2>Fiche de Paie #2 bis - Marc Legrand (Ouvrier) - Intitulés</h2>
+                <div class="instructions">
+                    <p><strong>Instructions :</strong> Glissez les intitulés corrects pour chaque ligne du tableau.</p>
+                    <p class="points">⭐ 5 points pour cette fiche</p>
+                </div>
+
+                <div class="payslip">
+                    <div class="payslip-header">
+                        <div class="company-info">
+                            <h3>Construct Plus S.P.R.L.</h3>
+                            <p>Chaussée de Charleroi 87<br>1060 Saint-Gilles<br>BCE: 0987.654.321</p>
+                        </div>
+                        <div class="employee-info">
+                            <h3>Marc LEGRAND</h3>
+                            <p>Avenue Fonsny 12<br>1060 Saint-Gilles<br>Matricule: OUV-2024-042</p>
+                        </div>
+                    </div>
+
+                    <div class="payslip-details">
+                        <h4>BULLETIN DE PAIE - Octobre 2025</h4>
+                        <p><strong>Statut :</strong> Ouvrier | <strong>Fonction :</strong> Maçon qualifié</p>
+
+                        <table class="payslip-table">
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone" data-answer="Coût Salarial Total (Employeur)" data-exercise="4" data-field="cout-label"></td>
+                                <td class="amount-cell"><strong>3.125,00 €</strong></td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone indent-drop" data-answer="ONSS Patronale (25%)" data-exercise="4" data-field="onss-patronale-label"></td>
+                                <td class="amount-cell"><strong>- 625,00 €</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell">SALAIRE BRUT</td>
+                                <td class="amount-cell">2.500,00 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell indent">ONSS Personnelle (13,07% × 108%)</td>
+                                <td class="amount-cell">- 353,89 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell">Salaire Imposable</td>
+                                <td class="amount-cell">2.146,11 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell indent">Précompte Professionnel (30%)</td>
+                                <td class="amount-cell">- 643,83 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell">SALAIRE NET À PAYER</td>
+                                <td class="amount-cell">1.502,28 €</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="draggable-items">
+                    <h4>Intitulés disponibles :</h4>
+                    <div class="items-container">
+                        <div class="draggable-item" draggable="true" data-value="Coût Salarial Total (Employeur)">Coût Salarial Total (Employeur)</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Patronale (25%)">ONSS Patronale (25%)</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT">SALAIRE BRUT</div>
+                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable">Salaire Imposable</div>
+                    </div>
+                </div>
+
+                <button class="btn btn-validate" onclick="validateExercise(4)">Valider cette fiche</button>
+            </div>
+
+            <!-- Fiche 3 - Montants -->
+            <div class="payslip-exercise hidden" id="exercise-5" data-type="amounts">
+                <h2>Fiche de Paie #3 - Julie Martin (Employée) - Montants</h2>
                 <div class="instructions">
                     <p><strong>Instructions :</strong> Glissez les montants corrects pour l'<strong>ONSS Personnelle</strong> et le <strong>Précompte Professionnel</strong>.</p>
                     <p class="points">⭐ 5 points pour cette fiche</p>
@@ -251,12 +391,82 @@
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(3)">Valider cette fiche</button>
+                <button class="btn btn-validate" onclick="validateExercise(5)">Valider cette fiche</button>
             </div>
 
-            <!-- Fiche 4 -->
-            <div class="payslip-exercise hidden" id="exercise-4">
-                <h2>Fiche de Paie #4 - Pierre Dumont (Ouvrier)</h2>
+            <!-- Fiche 3 bis - Intitulés -->
+            <div class="payslip-exercise hidden" id="exercise-6" data-type="labels">
+                <h2>Fiche de Paie #3 bis - Julie Martin (Employée) - Intitulés</h2>
+                <div class="instructions">
+                    <p><strong>Instructions :</strong> Glissez les intitulés corrects pour chaque ligne du tableau.</p>
+                    <p class="points">⭐ 5 points pour cette fiche</p>
+                </div>
+
+                <div class="payslip">
+                    <div class="payslip-header">
+                        <div class="company-info">
+                            <h3>MediCare Belgium S.A.</h3>
+                            <p>Boulevard Anspach 56<br>1000 Bruxelles<br>BCE: 0456.789.123</p>
+                        </div>
+                        <div class="employee-info">
+                            <h3>Julie MARTIN</h3>
+                            <p>Rue Neuve 28<br>1000 Bruxelles<br>Matricule: EMP-2024-015</p>
+                        </div>
+                    </div>
+
+                    <div class="payslip-details">
+                        <h4>BULLETIN DE PAIE - Octobre 2025</h4>
+                        <p><strong>Statut :</strong> Employée | <strong>Fonction :</strong> Infirmière</p>
+
+                        <table class="payslip-table">
+                            <tr>
+                                <td class="label-cell">Coût Salarial Total (Employeur)</td>
+                                <td class="amount-cell">4.375,00 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell indent">ONSS Patronale (25%)</td>
+                                <td class="amount-cell">- 875,00 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell">SALAIRE BRUT</td>
+                                <td class="amount-cell">3.500,00 €</td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone indent-drop" data-answer="ONSS Personnelle (13,07%)" data-exercise="6" data-field="onss-label"></td>
+                                <td class="amount-cell"><strong>- 457,45 €</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell">Salaire Imposable</td>
+                                <td class="amount-cell">3.042,55 €</td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone indent-drop" data-answer="Précompte Professionnel (30%)" data-exercise="6" data-field="precompte-label"></td>
+                                <td class="amount-cell"><strong>- 912,77 €</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell">SALAIRE NET À PAYER</td>
+                                <td class="amount-cell">2.129,78 €</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="draggable-items">
+                    <h4>Intitulés disponibles :</h4>
+                    <div class="items-container">
+                        <div class="draggable-item" draggable="true" data-value="ONSS Personnelle (13,07%)">ONSS Personnelle (13,07%)</div>
+                        <div class="draggable-item" draggable="true" data-value="Précompte Professionnel (30%)">Précompte Professionnel (30%)</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Patronale (25%)">ONSS Patronale (25%)</div>
+                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable">Salaire Imposable</div>
+                    </div>
+                </div>
+
+                <button class="btn btn-validate" onclick="validateExercise(6)">Valider cette fiche</button>
+            </div>
+
+            <!-- Fiche 4 - Montants -->
+            <div class="payslip-exercise hidden" id="exercise-7" data-type="amounts">
+                <h2>Fiche de Paie #4 - Pierre Dumont (Ouvrier) - Montants</h2>
                 <div class="instructions">
                     <p><strong>Instructions :</strong> Glissez les montants corrects pour le <strong>Salaire Imposable</strong>, le <strong>Précompte Professionnel</strong> et le <strong>Salaire Net</strong>.</p>
                     <p class="points">⭐ 5 points pour cette fiche</p>
@@ -323,12 +533,83 @@
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(4)">Valider cette fiche</button>
+                <button class="btn btn-validate" onclick="validateExercise(7)">Valider cette fiche</button>
             </div>
 
-            <!-- Fiche 5 - Complète -->
-            <div class="payslip-exercise hidden" id="exercise-5">
-                <h2>Fiche de Paie #5 - Isabelle Leroy (Employée) - COMPLÈTE</h2>
+            <!-- Fiche 4 bis - Intitulés -->
+            <div class="payslip-exercise hidden" id="exercise-8" data-type="labels">
+                <h2>Fiche de Paie #4 bis - Pierre Dumont (Ouvrier) - Intitulés</h2>
+                <div class="instructions">
+                    <p><strong>Instructions :</strong> Glissez les intitulés corrects pour chaque ligne du tableau.</p>
+                    <p class="points">⭐ 5 points pour cette fiche</p>
+                </div>
+
+                <div class="payslip">
+                    <div class="payslip-header">
+                        <div class="company-info">
+                            <h3>AutoMeca S.P.R.L.</h3>
+                            <p>Rue de l'Industrie 34<br>6000 Charleroi<br>BCE: 0789.123.456</p>
+                        </div>
+                        <div class="employee-info">
+                            <h3>Pierre DUMONT</h3>
+                            <p>Boulevard Tirou 67<br>6000 Charleroi<br>Matricule: OUV-2024-028</p>
+                        </div>
+                    </div>
+
+                    <div class="payslip-details">
+                        <h4>BULLETIN DE PAIE - Octobre 2025</h4>
+                        <p><strong>Statut :</strong> Ouvrier | <strong>Fonction :</strong> Mécanicien automobile</p>
+
+                        <table class="payslip-table">
+                            <tr>
+                                <td class="label-cell">Coût Salarial Total (Employeur)</td>
+                                <td class="amount-cell">5.000,00 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell indent">ONSS Patronale (25%)</td>
+                                <td class="amount-cell">- 1.000,00 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell">SALAIRE BRUT</td>
+                                <td class="amount-cell">4.000,00 €</td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell indent">ONSS Personnelle (13,07% × 108%)</td>
+                                <td class="amount-cell">- 565,42 €</td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone" data-answer="Salaire Imposable" data-exercise="8" data-field="imposable-label"></td>
+                                <td class="amount-cell"><strong>3.434,58 €</strong></td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone indent-drop" data-answer="Précompte Professionnel (30%)" data-exercise="8" data-field="precompte-label"></td>
+                                <td class="amount-cell"><strong>- 1.030,37 €</strong></td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone" data-answer="SALAIRE NET À PAYER" data-exercise="8" data-field="net-label"></td>
+                                <td class="amount-cell"><strong>2.404,21 €</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="draggable-items">
+                    <h4>Intitulés disponibles :</h4>
+                    <div class="items-container">
+                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable">Salaire Imposable</div>
+                        <div class="draggable-item" draggable="true" data-value="Précompte Professionnel (30%)">Précompte Professionnel (30%)</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE NET À PAYER">SALAIRE NET À PAYER</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT">SALAIRE BRUT</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Personnelle">ONSS Personnelle</div>
+                    </div>
+                </div>
+
+                <button class="btn btn-validate" onclick="validateExercise(8)">Valider cette fiche</button>
+            </div>
+
+            <!-- Fiche 5 - Montants (Complète) -->
+            <div class="payslip-exercise hidden" id="exercise-9" data-type="amounts">
+                <h2>Fiche de Paie #5 - Isabelle Leroy (Employée) - Montants COMPLETS</h2>
                 <div class="instructions">
                     <p><strong>Instructions :</strong> Glissez <strong>TOUS</strong> les montants corrects pour compléter entièrement cette fiche de paie.</p>
                     <p class="points">⭐ 5 points pour cette fiche</p>
@@ -403,7 +684,83 @@
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(5)">Valider cette fiche</button>
+                <button class="btn btn-validate" onclick="validateExercise(9)">Valider cette fiche</button>
+            </div>
+
+            <!-- Fiche 5 bis - Intitulés (Complète) -->
+            <div class="payslip-exercise hidden" id="exercise-10" data-type="labels">
+                <h2>Fiche de Paie #5 bis - Isabelle Leroy (Employée) - Intitulés COMPLETS</h2>
+                <div class="instructions">
+                    <p><strong>Instructions :</strong> Glissez <strong>TOUS</strong> les intitulés corrects pour compléter entièrement cette fiche de paie.</p>
+                    <p class="points">⭐ 5 points pour cette fiche</p>
+                </div>
+
+                <div class="payslip">
+                    <div class="payslip-header">
+                        <div class="company-info">
+                            <h3>FinanceConsult S.A.</h3>
+                            <p>Place Rogier 15<br>1210 Bruxelles<br>BCE: 0321.654.987</p>
+                        </div>
+                        <div class="employee-info">
+                            <h3>Isabelle LEROY</h3>
+                            <p>Avenue des Arts 89<br>1000 Bruxelles<br>Matricule: EMP-2024-052</p>
+                        </div>
+                    </div>
+
+                    <div class="payslip-details">
+                        <h4>BULLETIN DE PAIE - Octobre 2025</h4>
+                        <p><strong>Statut :</strong> Employée | <strong>Fonction :</strong> Consultante Financière Senior</p>
+
+                        <table class="payslip-table">
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone" data-answer="Coût Salarial Total (Employeur)" data-exercise="10" data-field="cout-label"></td>
+                                <td class="amount-cell"><strong>5.625,00 €</strong></td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone indent-drop" data-answer="ONSS Patronale (25%)" data-exercise="10" data-field="onss-patronale-label"></td>
+                                <td class="amount-cell"><strong>- 1.125,00 €</strong></td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone" data-answer="SALAIRE BRUT" data-exercise="10" data-field="brut-label"></td>
+                                <td class="amount-cell"><strong>4.500,00 €</strong></td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone indent-drop" data-answer="ONSS Personnelle (13,07%)" data-exercise="10" data-field="onss-label"></td>
+                                <td class="amount-cell"><strong>- 588,15 €</strong></td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone" data-answer="Salaire Imposable" data-exercise="10" data-field="imposable-label"></td>
+                                <td class="amount-cell"><strong>3.911,85 €</strong></td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone indent-drop" data-answer="Précompte Professionnel (30%)" data-exercise="10" data-field="precompte-label"></td>
+                                <td class="amount-cell"><strong>- 1.173,56 €</strong></td>
+                            </tr>
+                            <tr class="drop-zone-row">
+                                <td class="drop-zone" data-answer="SALAIRE NET À PAYER" data-exercise="10" data-field="net-label"></td>
+                                <td class="amount-cell"><strong>2.738,29 €</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="draggable-items">
+                    <h4>Intitulés disponibles :</h4>
+                    <div class="items-container">
+                        <div class="draggable-item" draggable="true" data-value="Coût Salarial Total (Employeur)">Coût Salarial Total (Employeur)</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Patronale (25%)">ONSS Patronale (25%)</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT">SALAIRE BRUT</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Personnelle (13,07%)">ONSS Personnelle (13,07%)</div>
+                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable">Salaire Imposable</div>
+                        <div class="draggable-item" draggable="true" data-value="Précompte Professionnel (30%)">Précompte Professionnel (30%)</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE NET À PAYER">SALAIRE NET À PAYER</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Personnelle">ONSS Personnelle</div>
+                        <div class="draggable-item" draggable="true" data-value="Précompte Professionnel">Précompte Professionnel</div>
+                        <div class="draggable-item" draggable="true" data-value="Coût Salarial">Coût Salarial</div>
+                    </div>
+                </div>
+
+                <button class="btn btn-validate" onclick="validateExercise(10)">Valider cette fiche</button>
             </div>
         </div>
 
@@ -464,14 +821,14 @@
             <div class="results-card">
                 <h2>🎉 Résultats Finaux</h2>
                 <div class="final-score">
-                    <p>Score total : <strong id="final-score">0</strong> / 30 points</p>
+                    <p>Score total : <strong id="final-score">0</strong> / 55 points</p>
                     <p id="percentage"></p>
                     <p id="appreciation"></p>
                 </div>
                 <div class="results-details">
                     <h3>Détails de votre performance :</h3>
                     <ul>
-                        <li>Fiches de paie : <span id="payslip-score">0</span> / 25 points</li>
+                        <li>Fiches de paie (montants + intitulés) : <span id="payslip-score">0</span> / 50 points</li>
                         <li>Quiz théorique : <span id="quiz-score">0</span> / 5 points</li>
                     </ul>
                 </div>
