@@ -104,14 +104,23 @@
                 <div class="draggable-items">
                     <h4>Montants disponibles :</h4>
                     <div class="items-container">
-                        <div class="draggable-item" draggable="true" data-value="1650.75">1.650,75 €</div>
-                        <div class="draggable-item" draggable="true" data-value="2500.00">2.500,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="3000.00">3.000,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="1825.53">1.825,53 €</div>
+                        <div class="draggable-item" draggable="true" data-value="1650.75" onclick="selectItem(this)">1.650,75 €</div>
+                        <div class="draggable-item" draggable="true" data-value="2500.00" onclick="selectItem(this)">2.500,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="3000.00" onclick="selectItem(this)">3.000,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="1825.53" onclick="selectItem(this)">1.825,53 €</div>
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(1)">Valider cette fiche</button>
+                <div class="exercise-controls">
+                    <button class="btn btn-secondary btn-reset" onclick="resetExercise(1)">🔄 Réinitialiser</button>
+                    <button class="btn btn-primary validate-btn" onclick="validateExercise(1)">✓ Valider cette fiche</button>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="btn btn-nav nav-prev-btn" onclick="goToPreviousExercise()" disabled>← Précédent</button>
+                    <span class="exercise-status">Fiche 1 / 10</span>
+                    <button class="btn btn-nav nav-next-btn disabled" onclick="goToNextExercise()">Suivant →</button>
+                </div>
             </div>
 
             <!-- Fiche 1 bis - Intitulés -->
@@ -174,14 +183,23 @@
                 <div class="draggable-items">
                     <h4>Intitulés disponibles :</h4>
                     <div class="items-container">
-                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable">Salaire Imposable</div>
-                        <div class="draggable-item" draggable="true" data-value="Coût Salarial Total">Coût Salarial Total</div>
-                        <div class="draggable-item" draggable="true" data-value="SALAIRE NET À PAYER">SALAIRE NET À PAYER</div>
-                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT">SALAIRE BRUT</div>
+                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable" onclick="selectItem(this)">Salaire Imposable</div>
+                        <div class="draggable-item" draggable="true" data-value="Coût Salarial Total" onclick="selectItem(this)">Coût Salarial Total</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE NET À PAYER" onclick="selectItem(this)">SALAIRE NET À PAYER</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT" onclick="selectItem(this)">SALAIRE BRUT</div>
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(2)">Valider cette fiche</button>
+                <div class="exercise-controls">
+                    <button class="btn btn-secondary btn-reset" onclick="resetExercise(2)">🔄 Réinitialiser</button>
+                    <button class="btn btn-primary validate-btn" onclick="validateExercise(2)">✓ Valider cette fiche</button>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="btn btn-nav nav-prev-btn" onclick="goToPreviousExercise()">← Précédent</button>
+                    <span class="exercise-status">Fiche 2 / 10</span>
+                    <button class="btn btn-nav nav-next-btn disabled" onclick="goToNextExercise()">Suivant →</button>
+                </div>
             </div>
 
             <!-- Fiche 2 - Montants -->
@@ -244,14 +262,23 @@
                 <div class="draggable-items">
                     <h4>Montants disponibles :</h4>
                     <div class="items-container">
-                        <div class="draggable-item" draggable="true" data-value="500.00">500,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="3000.00">3.000,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="625.00">625,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="3125.00">3.125,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="500.00" onclick="selectItem(this)">500,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="3000.00" onclick="selectItem(this)">3.000,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="625.00" onclick="selectItem(this)">625,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="3125.00" onclick="selectItem(this)">3.125,00 €</div>
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(3)">Valider cette fiche</button>
+                <div class="exercise-controls">
+                    <button class="btn btn-secondary btn-reset" onclick="resetExercise(3)">🔄 Réinitialiser</button>
+                    <button class="btn btn-primary validate-btn" onclick="validateExercise(3)">✓ Valider cette fiche</button>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="btn btn-nav nav-prev-btn" onclick="goToPreviousExercise()">← Précédent</button>
+                    <span class="exercise-status">Fiche 3 / 10</span>
+                    <button class="btn btn-nav nav-next-btn disabled" onclick="goToNextExercise()">Suivant →</button>
+                </div>
             </div>
 
             <!-- Fiche 2 bis - Intitulés -->
@@ -314,14 +341,23 @@
                 <div class="draggable-items">
                     <h4>Intitulés disponibles :</h4>
                     <div class="items-container">
-                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT">SALAIRE BRUT</div>
-                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable">Salaire Imposable</div>
-                        <div class="draggable-item" draggable="true" data-value="Coût Salarial Total (Employeur)">Coût Salarial Total (Employeur)</div>
-                        <div class="draggable-item" draggable="true" data-value="ONSS Patronale (25%)">ONSS Patronale (25%)</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT" onclick="selectItem(this)">SALAIRE BRUT</div>
+                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable" onclick="selectItem(this)">Salaire Imposable</div>
+                        <div class="draggable-item" draggable="true" data-value="Coût Salarial Total (Employeur)" onclick="selectItem(this)">Coût Salarial Total (Employeur)</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Patronale (25%)" onclick="selectItem(this)">ONSS Patronale (25%)</div>
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(4)">Valider cette fiche</button>
+                <div class="exercise-controls">
+                    <button class="btn btn-secondary btn-reset" onclick="resetExercise(4)">🔄 Réinitialiser</button>
+                    <button class="btn btn-primary validate-btn" onclick="validateExercise(4)">✓ Valider cette fiche</button>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="btn btn-nav nav-prev-btn" onclick="goToPreviousExercise()">← Précédent</button>
+                    <span class="exercise-status">Fiche 4 / 10</span>
+                    <button class="btn btn-nav nav-next-btn disabled" onclick="goToNextExercise()">Suivant →</button>
+                </div>
             </div>
 
             <!-- Fiche 3 - Montants -->
@@ -384,14 +420,23 @@
                 <div class="draggable-items">
                     <h4>Montants disponibles :</h4>
                     <div class="items-container">
-                        <div class="draggable-item" draggable="true" data-value="1050.00">1.050,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="500.00">500,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="457.45">457,45 €</div>
-                        <div class="draggable-item" draggable="true" data-value="912.77">912,77 €</div>
+                        <div class="draggable-item" draggable="true" data-value="1050.00" onclick="selectItem(this)">1.050,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="500.00" onclick="selectItem(this)">500,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="457.45" onclick="selectItem(this)">457,45 €</div>
+                        <div class="draggable-item" draggable="true" data-value="912.77" onclick="selectItem(this)">912,77 €</div>
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(5)">Valider cette fiche</button>
+                <div class="exercise-controls">
+                    <button class="btn btn-secondary btn-reset" onclick="resetExercise(5)">🔄 Réinitialiser</button>
+                    <button class="btn btn-primary validate-btn" onclick="validateExercise(5)">✓ Valider cette fiche</button>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="btn btn-nav nav-prev-btn" onclick="goToPreviousExercise()">← Précédent</button>
+                    <span class="exercise-status">Fiche 5 / 10</span>
+                    <button class="btn btn-nav nav-next-btn disabled" onclick="goToNextExercise()">Suivant →</button>
+                </div>
             </div>
 
             <!-- Fiche 3 bis - Intitulés -->
@@ -454,14 +499,23 @@
                 <div class="draggable-items">
                     <h4>Intitulés disponibles :</h4>
                     <div class="items-container">
-                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable">Salaire Imposable</div>
-                        <div class="draggable-item" draggable="true" data-value="ONSS Patronale (25%)">ONSS Patronale (25%)</div>
-                        <div class="draggable-item" draggable="true" data-value="ONSS Personnelle (13,07%)">ONSS Personnelle (13,07%)</div>
-                        <div class="draggable-item" draggable="true" data-value="Précompte Professionnel (30%)">Précompte Professionnel (30%)</div>
+                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable" onclick="selectItem(this)">Salaire Imposable</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Patronale (25%)" onclick="selectItem(this)">ONSS Patronale (25%)</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Personnelle (13,07%)" onclick="selectItem(this)">ONSS Personnelle (13,07%)</div>
+                        <div class="draggable-item" draggable="true" data-value="Précompte Professionnel (30%)" onclick="selectItem(this)">Précompte Professionnel (30%)</div>
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(6)">Valider cette fiche</button>
+                <div class="exercise-controls">
+                    <button class="btn btn-secondary btn-reset" onclick="resetExercise(6)">🔄 Réinitialiser</button>
+                    <button class="btn btn-primary validate-btn" onclick="validateExercise(6)">✓ Valider cette fiche</button>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="btn btn-nav nav-prev-btn" onclick="goToPreviousExercise()">← Précédent</button>
+                    <span class="exercise-status">Fiche 6 / 10</span>
+                    <button class="btn btn-nav nav-next-btn disabled" onclick="goToNextExercise()">Suivant →</button>
+                </div>
             </div>
 
             <!-- Fiche 4 - Montants -->
@@ -524,16 +578,25 @@
                 <div class="draggable-items">
                     <h4>Montants disponibles :</h4>
                     <div class="items-container">
-                        <div class="draggable-item" draggable="true" data-value="2300.00">2.300,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="1200.00">1.200,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="3500.00">3.500,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="2404.21">2.404,21 €</div>
-                        <div class="draggable-item" draggable="true" data-value="1030.37">1.030,37 €</div>
-                        <div class="draggable-item" draggable="true" data-value="3434.58">3.434,58 €</div>
+                        <div class="draggable-item" draggable="true" data-value="2300.00" onclick="selectItem(this)">2.300,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="1200.00" onclick="selectItem(this)">1.200,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="3500.00" onclick="selectItem(this)">3.500,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="2404.21" onclick="selectItem(this)">2.404,21 €</div>
+                        <div class="draggable-item" draggable="true" data-value="1030.37" onclick="selectItem(this)">1.030,37 €</div>
+                        <div class="draggable-item" draggable="true" data-value="3434.58" onclick="selectItem(this)">3.434,58 €</div>
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(7)">Valider cette fiche</button>
+                <div class="exercise-controls">
+                    <button class="btn btn-secondary btn-reset" onclick="resetExercise(7)">🔄 Réinitialiser</button>
+                    <button class="btn btn-primary validate-btn" onclick="validateExercise(7)">✓ Valider cette fiche</button>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="btn btn-nav nav-prev-btn" onclick="goToPreviousExercise()">← Précédent</button>
+                    <span class="exercise-status">Fiche 7 / 10</span>
+                    <button class="btn btn-nav nav-next-btn disabled" onclick="goToNextExercise()">Suivant →</button>
+                </div>
             </div>
 
             <!-- Fiche 4 bis - Intitulés -->
@@ -596,15 +659,24 @@
                 <div class="draggable-items">
                     <h4>Intitulés disponibles :</h4>
                     <div class="items-container">
-                        <div class="draggable-item" draggable="true" data-value="ONSS Personnelle">ONSS Personnelle</div>
-                        <div class="draggable-item" draggable="true" data-value="SALAIRE NET À PAYER">SALAIRE NET À PAYER</div>
-                        <div class="draggable-item" draggable="true" data-value="Précompte Professionnel (30%)">Précompte Professionnel (30%)</div>
-                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT">SALAIRE BRUT</div>
-                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable">Salaire Imposable</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Personnelle" onclick="selectItem(this)">ONSS Personnelle</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE NET À PAYER" onclick="selectItem(this)">SALAIRE NET À PAYER</div>
+                        <div class="draggable-item" draggable="true" data-value="Précompte Professionnel (30%)" onclick="selectItem(this)">Précompte Professionnel (30%)</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT" onclick="selectItem(this)">SALAIRE BRUT</div>
+                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable" onclick="selectItem(this)">Salaire Imposable</div>
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(8)">Valider cette fiche</button>
+                <div class="exercise-controls">
+                    <button class="btn btn-secondary btn-reset" onclick="resetExercise(8)">🔄 Réinitialiser</button>
+                    <button class="btn btn-primary validate-btn" onclick="validateExercise(8)">✓ Valider cette fiche</button>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="btn btn-nav nav-prev-btn" onclick="goToPreviousExercise()">← Précédent</button>
+                    <span class="exercise-status">Fiche 8 / 10</span>
+                    <button class="btn btn-nav nav-next-btn disabled" onclick="goToNextExercise()">Suivant →</button>
+                </div>
             </div>
 
             <!-- Fiche 5 - Montants (Complète) -->
@@ -667,17 +739,26 @@
                 <div class="draggable-items">
                     <h4>Montants disponibles :</h4>
                     <div class="items-container">
-                        <div class="draggable-item" draggable="true" data-value="2738.29">2.738,29 €</div>
-                        <div class="draggable-item" draggable="true" data-value="1173.56">1.173,56 €</div>
-                        <div class="draggable-item" draggable="true" data-value="4500.00">4.500,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="588.15">588,15 €</div>
-                        <div class="draggable-item" draggable="true" data-value="3911.85">3.911,85 €</div>
-                        <div class="draggable-item" draggable="true" data-value="1125.00">1.125,00 €</div>
-                        <div class="draggable-item" draggable="true" data-value="5625.00">5.625,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="2738.29" onclick="selectItem(this)">2.738,29 €</div>
+                        <div class="draggable-item" draggable="true" data-value="1173.56" onclick="selectItem(this)">1.173,56 €</div>
+                        <div class="draggable-item" draggable="true" data-value="4500.00" onclick="selectItem(this)">4.500,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="588.15" onclick="selectItem(this)">588,15 €</div>
+                        <div class="draggable-item" draggable="true" data-value="3911.85" onclick="selectItem(this)">3.911,85 €</div>
+                        <div class="draggable-item" draggable="true" data-value="1125.00" onclick="selectItem(this)">1.125,00 €</div>
+                        <div class="draggable-item" draggable="true" data-value="5625.00" onclick="selectItem(this)">5.625,00 €</div>
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(9)">Valider cette fiche</button>
+                <div class="exercise-controls">
+                    <button class="btn btn-secondary btn-reset" onclick="resetExercise(9)">🔄 Réinitialiser</button>
+                    <button class="btn btn-primary validate-btn" onclick="validateExercise(9)">✓ Valider cette fiche</button>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="btn btn-nav nav-prev-btn" onclick="goToPreviousExercise()">← Précédent</button>
+                    <span class="exercise-status">Fiche 9 / 10</span>
+                    <button class="btn btn-nav nav-next-btn disabled" onclick="goToNextExercise()">Suivant →</button>
+                </div>
             </div>
 
             <!-- Fiche 5 bis - Intitulés (Complète) -->
@@ -740,17 +821,26 @@
                 <div class="draggable-items">
                     <h4>Intitulés disponibles :</h4>
                     <div class="items-container">
-                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable">Salaire Imposable</div>
-                        <div class="draggable-item" draggable="true" data-value="SALAIRE NET À PAYER">SALAIRE NET À PAYER</div>
-                        <div class="draggable-item" draggable="true" data-value="Précompte Professionnel (30%)">Précompte Professionnel (30%)</div>
-                        <div class="draggable-item" draggable="true" data-value="ONSS Personnelle (13,07%)">ONSS Personnelle (13,07%)</div>
-                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT">SALAIRE BRUT</div>
-                        <div class="draggable-item" draggable="true" data-value="Coût Salarial Total (Employeur)">Coût Salarial Total (Employeur)</div>
-                        <div class="draggable-item" draggable="true" data-value="ONSS Patronale (25%)">ONSS Patronale (25%)</div>
+                        <div class="draggable-item" draggable="true" data-value="Salaire Imposable" onclick="selectItem(this)">Salaire Imposable</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE NET À PAYER" onclick="selectItem(this)">SALAIRE NET À PAYER</div>
+                        <div class="draggable-item" draggable="true" data-value="Précompte Professionnel (30%)" onclick="selectItem(this)">Précompte Professionnel (30%)</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Personnelle (13,07%)" onclick="selectItem(this)">ONSS Personnelle (13,07%)</div>
+                        <div class="draggable-item" draggable="true" data-value="SALAIRE BRUT" onclick="selectItem(this)">SALAIRE BRUT</div>
+                        <div class="draggable-item" draggable="true" data-value="Coût Salarial Total (Employeur)" onclick="selectItem(this)">Coût Salarial Total (Employeur)</div>
+                        <div class="draggable-item" draggable="true" data-value="ONSS Patronale (25%)" onclick="selectItem(this)">ONSS Patronale (25%)</div>
                     </div>
                 </div>
 
-                <button class="btn btn-validate" onclick="validateExercise(10)">Valider cette fiche</button>
+                <div class="exercise-controls">
+                    <button class="btn btn-secondary btn-reset" onclick="resetExercise(10)">🔄 Réinitialiser</button>
+                    <button class="btn btn-primary validate-btn" onclick="validateExercise(10)">✓ Valider cette fiche</button>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="btn btn-nav nav-prev-btn" onclick="goToPreviousExercise()">← Précédent</button>
+                    <span class="exercise-status">Fiche 10 / 10</span>
+                    <button class="btn btn-nav nav-next-btn disabled" onclick="goToNextExercise()">Suivant →</button>
+                </div>
             </div>
         </div>
 
