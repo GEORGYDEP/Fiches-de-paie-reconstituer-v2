@@ -17,6 +17,23 @@ let exerciseResults = {
     10: false
 };
 
+// Machine à états pour chaque exercice
+let exerciseStates = {
+    1: 'pending',
+    2: 'pending',
+    3: 'pending',
+    4: 'pending',
+    5: 'pending',
+    6: 'pending',
+    7: 'pending',
+    8: 'pending',
+    9: 'pending',
+    10: 'pending'
+};
+
+// État de sélection pour le mode fallback tactile
+let selectedItem = null;
+
 // Réponses correctes du quiz
 const quizAnswers = {
     q1: 'b',  // Le montant avant toute déduction
@@ -196,6 +213,9 @@ function validateExercise(exerciseNumber) {
     }
 
     if (allCorrect) {
+        // Passer à l'état 'valid' et verrouiller l'exercice
+        exerciseStates[exerciseNumber] = 'valid';
+
         if (!exerciseResults[exerciseNumber]) {
             exerciseResults[exerciseNumber] = true;
             payslipScore += 5;
@@ -203,17 +223,166 @@ function validateExercise(exerciseNumber) {
             updateScore();
         }
 
-        showMessage('✅ Excellent ! Toutes vos réponses sont correctes ! (+5 points)', 'success');
+        // Verrouiller l'exercice : désactiver le drag-and-drop
+        lockExercise(exerciseNumber);
 
-        setTimeout(() => {
-            if (exerciseNumber < 10) {
-                showExercise(exerciseNumber + 1);
-            } else {
-                showQuiz();
-            }
-        }, 2000);
+        showMessage('✅ Excellent ! Toutes vos réponses sont correctes ! (+5 points) Vous pouvez passer à la fiche suivante.', 'success');
+
+        // Mettre à jour les boutons de navigation
+        updateNavigationButtons();
     } else {
-        showMessage('❌ Certaines réponses sont incorrectes. Veuillez réessayer.', 'error');
+        // Rester en état 'pending' : l'élève peut corriger
+        showMessage('❌ Certaines réponses sont incorrectes. Vous pouvez retirer les éléments incorrects et réessayer.', 'error');
+
+        // Ajouter des boutons de retrait visuels sur les zones remplies
+        addRemoveButtons(exerciseNumber);
+    }
+}
+
+// Verrouiller un exercice validé
+function lockExercise(exerciseNumber) {
+    const exercise = document.getElementById(`exercise-${exerciseNumber}`);
+    const draggableItems = exercise.querySelectorAll('.draggable-item');
+    const dropZones = exercise.querySelectorAll('.drop-zone');
+    const validateButton = exercise.querySelector('.validate-btn');
+
+    // Désactiver tous les éléments draggables
+    draggableItems.forEach(item => {
+        item.draggable = false;
+        item.classList.add('locked');
+    });
+
+    // Désactiver les zones de drop
+    dropZones.forEach(zone => {
+        zone.classList.add('locked');
+        // Retirer les event listeners en clonant et remplaçant
+        const newZone = zone.cloneNode(true);
+        zone.parentNode.replaceChild(newZone, zone);
+    });
+
+    // Désactiver le bouton de validation
+    if (validateButton) {
+        validateButton.disabled = true;
+        validateButton.textContent = '✓ Validé';
+    }
+
+    // Retirer tous les boutons de retrait
+    exercise.querySelectorAll('.remove-btn').forEach(btn => btn.remove());
+}
+
+// Ajouter des boutons de retrait visuels
+function addRemoveButtons(exerciseNumber) {
+    const exercise = document.getElementById(`exercise-${exerciseNumber}`);
+    const dropZones = exercise.querySelectorAll('.drop-zone.filled');
+
+    dropZones.forEach(zone => {
+        // Ne pas ajouter si déjà présent
+        if (zone.querySelector('.remove-btn')) return;
+
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'remove-btn';
+        removeBtn.innerHTML = '×';
+        removeBtn.title = 'Retirer cet élément';
+        removeBtn.onclick = (e) => {
+            e.stopPropagation();
+            removeItemFromZone(zone);
+        };
+
+        zone.appendChild(removeBtn);
+    });
+}
+
+// Retirer un élément d'une zone
+function removeItemFromZone(zone) {
+    const value = zone.getAttribute('data-filled-value');
+
+    // Vider la zone
+    const removeBtn = zone.querySelector('.remove-btn');
+    if (removeBtn) removeBtn.remove();
+
+    zone.textContent = '';
+    zone.removeAttribute('data-filled-value');
+    zone.classList.remove('filled', 'correct', 'incorrect');
+
+    // Réactiver l'élément draggable correspondant
+    const draggableItems = document.querySelectorAll('.draggable-item');
+    draggableItems.forEach(item => {
+        if (item.getAttribute('data-value') === value && item.classList.contains('used')) {
+            item.classList.remove('used');
+            item.draggable = true;
+        }
+    });
+}
+
+// Réinitialiser un exercice
+function resetExercise(exerciseNumber) {
+    const exercise = document.getElementById(`exercise-${exerciseNumber}`);
+    const dropZones = exercise.querySelectorAll('.drop-zone');
+    const draggableItems = exercise.querySelectorAll('.draggable-item');
+
+    // Vider toutes les zones
+    dropZones.forEach(zone => {
+        const removeBtn = zone.querySelector('.remove-btn');
+        if (removeBtn) removeBtn.remove();
+
+        zone.textContent = '';
+        zone.removeAttribute('data-filled-value');
+        zone.classList.remove('filled', 'correct', 'incorrect');
+    });
+
+    // Réactiver tous les éléments
+    draggableItems.forEach(item => {
+        item.classList.remove('used');
+        item.draggable = true;
+    });
+
+    showMessage('Exercice réinitialisé. Vous pouvez recommencer.', 'info');
+}
+
+// Navigation entre exercices
+function goToPreviousExercise() {
+    if (currentExercise > 1) {
+        showExercise(currentExercise - 1);
+    }
+}
+
+function goToNextExercise() {
+    // Vérifier si l'exercice actuel est validé
+    if (exerciseStates[currentExercise] !== 'valid') {
+        showMessage('Vous devez d\'abord valider correctement cet exercice avant de passer au suivant.', 'error');
+        return;
+    }
+
+    if (currentExercise < 10) {
+        showExercise(currentExercise + 1);
+    } else {
+        showQuiz();
+    }
+}
+
+// Mettre à jour l'état des boutons de navigation
+function updateNavigationButtons() {
+    const exercise = document.getElementById(`exercise-${currentExercise}`);
+    if (!exercise) return;
+
+    const prevBtn = exercise.querySelector('.nav-prev-btn');
+    const nextBtn = exercise.querySelector('.nav-next-btn');
+
+    if (prevBtn) {
+        prevBtn.disabled = currentExercise === 1;
+    }
+
+    if (nextBtn) {
+        // Désactiver le bouton suivant si l'exercice n'est pas validé
+        nextBtn.disabled = exerciseStates[currentExercise] !== 'valid';
+
+        if (exerciseStates[currentExercise] === 'valid') {
+            nextBtn.classList.add('enabled');
+            nextBtn.classList.remove('disabled');
+        } else {
+            nextBtn.classList.add('disabled');
+            nextBtn.classList.remove('enabled');
+        }
     }
 }
 
@@ -232,20 +401,33 @@ function showExercise(exerciseNumber) {
         currentExercise = exerciseNumber;
         updateProgress();
 
-        // Réinitialiser le drag and drop pour ce nouvel exercice
-        const draggableItems = exercise.querySelectorAll('.draggable-item');
-        const dropZones = exercise.querySelectorAll('.drop-zone');
+        // NE PAS réinitialiser si l'exercice est déjà validé
+        if (exerciseStates[exerciseNumber] !== 'valid') {
+            // Réinitialiser le drag and drop uniquement pour les exercices non validés
+            const draggableItems = exercise.querySelectorAll('.draggable-item');
+            const dropZones = exercise.querySelectorAll('.drop-zone');
 
-        draggableItems.forEach(item => {
-            item.classList.remove('used');
-            item.draggable = true;
-        });
+            draggableItems.forEach(item => {
+                if (!item.classList.contains('locked')) {
+                    item.classList.remove('used');
+                    item.draggable = true;
+                }
+            });
 
-        dropZones.forEach(zone => {
-            zone.textContent = '';
-            zone.removeAttribute('data-filled-value');
-            zone.classList.remove('filled', 'correct', 'incorrect');
-        });
+            dropZones.forEach(zone => {
+                if (!zone.classList.contains('locked')) {
+                    const removeBtn = zone.querySelector('.remove-btn');
+                    if (removeBtn) removeBtn.remove();
+
+                    zone.textContent = '';
+                    zone.removeAttribute('data-filled-value');
+                    zone.classList.remove('filled', 'correct', 'incorrect');
+                }
+            });
+        }
+
+        // Mettre à jour les boutons de navigation
+        updateNavigationButtons();
     }
 }
 
@@ -463,6 +645,77 @@ function handleTouchEnd(e) {
 
     touchedElement = null;
     e.preventDefault();
+}
+
+// Mode sélection pour fallback tactile
+function selectItem(item) {
+    // Désélectionner tous les autres
+    document.querySelectorAll('.draggable-item').forEach(i => {
+        i.classList.remove('selected');
+    });
+
+    // Sélectionner celui-ci
+    if (!item.classList.contains('used') && !item.classList.contains('locked')) {
+        item.classList.add('selected');
+        selectedItem = item;
+        showMessage('Élément sélectionné. Cliquez sur "Placer ici" dans une case pour le placer.', 'info');
+
+        // Afficher les boutons "Placer ici"
+        const exercise = item.closest('.payslip-exercise');
+        if (exercise) {
+            showPlaceButtons(exercise);
+        }
+    }
+}
+
+function showPlaceButtons(exercise) {
+    // Retirer les anciens boutons
+    exercise.querySelectorAll('.place-here-btn').forEach(btn => btn.remove());
+
+    // Ajouter des boutons "Placer ici" sur les zones vides
+    const dropZones = exercise.querySelectorAll('.drop-zone:not(.filled):not(.locked)');
+    dropZones.forEach(zone => {
+        const placeBtn = document.createElement('button');
+        placeBtn.className = 'place-here-btn';
+        placeBtn.textContent = 'Placer ici';
+        placeBtn.onclick = (e) => {
+            e.stopPropagation();
+            placeSelectedItem(zone);
+        };
+        zone.appendChild(placeBtn);
+    });
+}
+
+function placeSelectedItem(zone) {
+    if (!selectedItem || zone.classList.contains('filled') || zone.classList.contains('locked')) {
+        return;
+    }
+
+    const value = selectedItem.getAttribute('data-value');
+    const displayText = selectedItem.textContent;
+
+    zone.textContent = displayText;
+    zone.setAttribute('data-filled-value', value);
+    zone.classList.add('filled');
+
+    selectedItem.classList.add('used');
+    selectedItem.classList.remove('selected');
+    selectedItem.draggable = false;
+
+    // Retirer tous les boutons "Placer ici"
+    document.querySelectorAll('.place-here-btn').forEach(btn => btn.remove());
+
+    selectedItem = null;
+}
+
+function cancelSelection() {
+    if (selectedItem) {
+        selectedItem.classList.remove('selected');
+        selectedItem = null;
+    }
+
+    // Retirer tous les boutons "Placer ici"
+    document.querySelectorAll('.place-here-btn').forEach(btn => btn.remove());
 }
 
 // Empêcher le comportement par défaut du drag sur le document
